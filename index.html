@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO IP</title>
+    <link rel="stylesheet" href="styles.css">
+   <script src="script.js"></script>
+    
+    <body>
+        Site programado por Mateus Rezende e Raul Abreu 
+    </body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e2b880;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            background-color: rgb(255, 255, 255);
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #160cd6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color:   #000000;
+        }
+        .ip {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IP do seu estado</h1>
+        <select id="state">
+            <option value="">Selecione seu estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+        <button onclick="generateIP()">Gerar IP</button>
+        <div class="ip" id="generatedIP"></div>
+        <div class="error" id="errorMessage"></div>
+    </div>
+
+    <script>
+        function generateIP() {
+            const state = document.getElementById('state').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const generatedIP = document.getElementById('generatedIP');
+
+            const ipMap = {
+                "AC": "184.199.236.119",
+                "AL": "113.69.186.64",
+                "AP": "151.98.18.143",
+                "AM": "201.51.219.95",
+                "BA": "230.191.80.72",
+                "CE": "86.164.133.82",
+                "DF": "144.139.239.58",
+                "ES": "50.150.194.68",
+                "GO": "63.7.29.162",
+                "MA": "23.167.61.41",
+                "MT": "127.148.192.240",
+                "MS": "105.149.149.184",
+                "MG": "87.7.238.75",
+                "PA": "169.145.4.147",
+                "PB": "107.67.154.32",
+                "PR": "87.145.197.58",
+                "PE": "208.109.199.54",
+                "PI": "4.149.46.249",
+                "RJ": "39.21.162.211",
+                "RN": "26.44.51.96",
+                "RS": "128.123.133.49",
+                "RO": "214.124.245.225",
+                "RR": "194.113.85.182",
+                "SC": "244.252.176.195",
+                "SP": "6.145.142.130",
+                "SE": "198.255.98.140",
+                "TO": "172.31.180.140"
+            };
+
+            
+            if (state === "") {
+                errorMessage.innerText = "Por favor, selecione um estado.";
+                generatedIP.innerText = "";
+                return;
+            }
+
+            
+            errorMessage.innerText = "";
+
+           
+            const ip = ipMap[state];
+            generatedIP.innerText = `Estado selecionado: ${state} | IP Gerado: ${ip}`;
+        }
+    </script>
+</body>
+</html>

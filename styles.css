@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #dac8b7;
+}
+
+
+header {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    margin-top: 60px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffffcc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#ip-address {
+    font-size: 24px;
+    font-weight: bold;
+}
